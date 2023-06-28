@@ -2,7 +2,7 @@ const express=require('express');
 const router=express.Router();
 const multer=require('multer');
 const Movie=require('../Movie');
-
+const path=require('path')
 const storage = multer.diskStorage({
   destination: 'public/uploads/',
   filename: function (req, file, cb) {
@@ -14,9 +14,10 @@ const storage = multer.diskStorage({
 });
 
 const upload = multer({ storage });
-router.post('', upload.single('moviePoster'), async (req, res) => {
+router.post('/', upload.single('moviePoster'), async (req, res) => {
   const { movieName } = req.body;
   const moviePoster = req.file.filename;
+  //console.log(req.body);
 
   try {
     const newMovie = new Movie({ movieName, moviePoster });
