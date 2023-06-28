@@ -9,7 +9,8 @@ const BookingSchema = new mongoose.Schema({
   BookingDate:String,
   seatRow: String,
   seatCol: String,
-  showTime: String
+  showTime: String,
+  BookingDate:String
 });
 
 const UserRegSchema = new mongoose.Schema({
@@ -18,10 +19,10 @@ const UserRegSchema = new mongoose.Schema({
   email: String,
   phoneNumber: Number,
   password: String,
-  address: String,
+  Address: String,
   state: String,
   district: String,
-  pinCode: String,
+  pincode: String,
   token: String,
   bookings: [BookingSchema]
 });
